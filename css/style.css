@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #002D62;
+  color: white;
+  padding: 20px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('img/hero.jpg') no-repeat center/cover;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section {
+  padding: 60px 20px;
+}
+
+.section.light {
+  background-color: #f0f4f8;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+footer {
+  background-color: #002D62;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
