@@ -48,7 +48,7 @@
     color: white;
     text-align: center;
     padding: 20px 0;
-    font-size: 6px;
+    font-size: 12px;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -65,4 +65,14 @@
     z-index: 10;
   }
   
+  .right-menu {
+    position: absolute;
+    top: 30px; /* 60px yüksekliğin tam ortası */
+    right: 26.5%; /* Sayfayı 4'e bölüp soldan 2. sütunun ortası */
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px;
+    font-weight: 700;
+    z-index: 10;
+  }
   
