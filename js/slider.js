@@ -1,18 +1,28 @@
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
+const mask = document.querySelector('.circle-mask');
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) {
-      slide.classList.add('active');
-    }
-  });
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
 }
 
 function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.length;
-  showSlide(slideIndex);
+  const nextIndex = (slideIndex + 1) % slides.length;
+  const newBg = slides[nextIndex].style.backgroundImage;
+
+  const newSlide = document.createElement('div');
+  newSlide.className = 'new-slide';
+  newSlide.style.backgroundImage = newBg;
+
+  mask.innerHTML = '';
+  mask.appendChild(newSlide);
+  mask.classList.add('show');
+
+  setTimeout(() => {
+    slideIndex = nextIndex;
+    showSlide(slideIndex);
+  }, 800);
 }
 
-setInterval(nextSlide, 6000); // Her 6 saniyede bir geçiş
+setInterval(nextSlide, 6000);

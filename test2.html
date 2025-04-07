@@ -2,95 +2,45 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Slider Test</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-      transform: scale(1.1);
-    }
-
-    .slide.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 30px;
-      left: 50px;
-      font-size: 24px;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-    }
-  </style>
-</head>
+  <title>Eurasia Kimya</title>
+  <link rel="stylesheet" href="css/style.css">
+  </head>
 <body>
 
-<div class="slider">
-  <div class="slide active" style="background-image: url('https://picsum.photos/id/1015/1200/500');">
-    <div class="caption">Kalite ve Güven</div>
+  <!-- Üst Gri Bant -->
+  <div class="top-bar">
+    <!-- Sol Menü -->
+    <div class="menu">
+      <a href="#">Our Brands</a>
+      <a href="#">Hikayemiz</a>
+    </div>
+
+    <!-- Sağ Menü -->
+    <div class="right-menu">
+      <a href="#">Hakkımızda</a>
+      <a href="#">Haberler</a>
+    </div>
   </div>
-  <div class="slide" style="background-image: url('https://picsum.photos/id/1016/1200/500');">
-    <div class="caption">Hijyen ve Teknoloji</div>
+
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="img/eurasialogo.png" alt="Eurasia Logo" class="logo-img">
   </div>
-  <div class="slide" style="background-image: url('https://picsum.photos/id/1018/1200/500');">
-    <div class="caption">Quick Care</div>
+
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slide active" style="background-image: url('img/slider1.webp');"></div>
+    <div class="slide" style="background-image: url('img/slider2.webp');"></div>
+    <div class="slide" style="background-image: url('img/slider3.webp');"></div>
+    <div class="circle-mask"></div>
   </div>
-</div>
 
-<script>
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.slide');
+  <!-- Alt Mavi Bant -->
+  <div class="bottom-bar">
+    <p>©2025 Eurasia Kimya</p>
+  </div>
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      if (i === index) {
-        slide.classList.add('active');
-      }
-    });
-  }
-
-  function moveSlide(step) {
-    slideIndex += step;
-    if (slideIndex >= slides.length) {
-      slideIndex = 0;
-    } else if (slideIndex < 0) {
-      slideIndex = slides.length - 1;
-    }
-    showSlide(slideIndex);
-  }
-
-  setInterval(() => {
-    moveSlide(1);
-  }, 5000);
-
-  showSlide(slideIndex);
-</script>
-
+  <!-- JS en sona -->
+  <script src="js/slider.js"></script>
 </body>
 </html>
