@@ -22,13 +22,14 @@
   /* Logo */
 .logo-container {
     position: absolute;
-    top: 0,1;
+    top: 0%;
     left: 50%;
     transform: translate(-50%, 0);
     height: 60px; /* Gri bant yüksekliği ile aynı */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 8px; /* Aşağıya kaydırma */
     z-index: 5;
   }
   
