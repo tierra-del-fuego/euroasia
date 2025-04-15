@@ -6,7 +6,13 @@
   <link rel="stylesheet" href="css/style.css">
   </head>
 <body>
-
+  <!-- Orta buyuk resim -->
+  <div class="slider-container">
+    <div class="slide active" style="background-image: url('img/slider1.webp');"></div>
+    <div class="slide" style="background-image: url('img/slider2.webp');"></div>
+    <div class="slide" style="background-image: url('img/slider3.webp');"></div>
+  </div>
+    
   <!-- Üst Gri Bant -->
   <div class="top-bar">
     <!-- Sol Menü -->
@@ -31,3 +37,27 @@
   <div class="bottom-bar">
     <p>©2025 Eurasia Kimya</p>
   </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        slide.style.zIndex = 1;
+      });
+  
+      slides[index].classList.add('active');
+      slides[index].style.zIndex = 2;
+    }
+  
+    function nextSlide() {
+      showSlide(current);
+      current = (current + 1) % slides.length;
+    }
+  
+    // Başlat
+    showSlide(current);
+    setInterval(nextSlide, 3000); // 6 saniyede bir geçiş
+  </script>

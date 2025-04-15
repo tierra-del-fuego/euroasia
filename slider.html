@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Explode Mask Reveal Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background-color: #111;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      z-index: 1;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .circle-mask {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      z-index: 999;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .circle-mask.reveal {
+      animation: circleReveal 0.6s ease-out forwards;
+    }
+
+    @keyframes circleReveal {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      70% {
+        width: 1800px;
+        height: 1800px;
+        opacity: 1;
+      }
+      100% {
+        width: 1800px;
+        height: 1800px;
+        opacity: 0; /* yok olma */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slider-container">
+  <div class="slide active" style="background-image: url('img/slider1.webp');"></div>
+  <div class="slide" style="background-image: url('img/slider2.webp');"></div>
+  <div class="slide" style="background-image: url('img/slider3.webp');"></div>
+
+  <!-- Daire maskesi -->
+  <div class="circle-mask" id="mask"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const mask = document.getElementById('mask');
+  let current = 0;
+
+  function showNextSlide() {
+    const next = (current + 1) % slides.length;
+    const nextSlide = slides[next];
+    const bg = nextSlide.style.backgroundImage;
+
+    // Maskeye arka plan ver ve patlat
+    mask.style.backgroundImage = bg;
+    mask.classList.remove('reveal');
+    void mask.offsetWidth; // reset animation
+    mask.classList.add('reveal');
+
+    // Aktif slide güncelle (biraz daha erken olsun, akıcı geçiş için)
+    setTimeout(() => {
+      slides.forEach(s => s.classList.remove('active'));
+      nextSlide.classList.add('active');
+      current = next;
+    }, 300); // görseli erken getir ki mask ile örtüşsün
+  }
+
+  // Her 3 saniyede bir geçiş
+  setInterval(showNextSlide, 3000);
+</script>
+
+</body>
+</html>
