@@ -1,0 +1,91 @@
+  
+  /* Genel reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 30%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* Üst Gri Bant */
+  .top-bar {
+    background-color: #e0e0e0;
+    height: 60px;
+    width: 100%;
+  }
+  
+  /* Logo */
+.logo-container {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 60px; /* Gri bant yüksekliği ile aynı */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 8px; /* Aşağıya kaydırma */
+    z-index: 5;
+  }
+  
+  .logo-img {
+    width: 25%; /* Oranı küçük tutmaya devam */
+    height: auto;
+  }
+  
+  /* İçerik Alanı */
+  .main-content {
+    flex: 1;
+  }
+  
+  /* Alt Mavi Bant */
+  .bottom-bar {
+    background-color: #003c78;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .menu {
+    position: absolute;
+    top: 30px; /* 60px yüksekliğin tam ortası */
+    left: 37.5%; /* Sayfayı 4'e bölüp soldan 2. sütunun ortası */
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px;
+    font-weight: 700;
+    z-index: 10;
+  }
+  
+  .right-menu {
+    position: absolute;
+    top: 30px; /* 60px yüksekliğin tam ortası */
+    left: 61%; /* Sayfayı 4'e bölüp soldan 2. sütunun ortası */
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px;
+    font-weight: 700;
+    z-index: 10;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  

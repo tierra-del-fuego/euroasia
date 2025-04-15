@@ -4,41 +4,22 @@
   <meta charset="UTF-8">
   <title>Eurasia Kimya</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <style>
-    .countdown {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 28px;
-      color: #003da5;
-      background-color: #fff;
-      padding: 20px 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: inline-block;
-    }
-    .main-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100vh - 200px); /* Üst ve alt barı hesaba kat */
-    }
-  </style>
-</head>
+  </head>
 <body>
 
   <!-- Üst Gri Bant -->
   <div class="top-bar">
+    <!-- Sol Menü -->
     <div class="menu">
-      <a href="#">Our Brands</a>
+      <a href="#">Markalarımız</a>
       <a href="#">Hikayemiz</a>
     </div>
-  </div>
 
-  <!-- Sağ Menü -->
-  <div class="right-menu">
-    <a href="#">Hakkımızda</a>
-    <a href="#">Haberler</a>
+    <!-- Sağ Menü -->
+    <div class="right-menu">
+      <a href="#">Hakkımızda</a>
+      <a href="#">Haberler</a>
+    </div>
   </div>
 
   <!-- Logo -->
@@ -46,49 +27,20 @@
     <img src="img/eurasialogo.png" alt="Eurasia Logo" class="logo-img">
   </div>
 
-  <!-- Ana İçerik Alanı -->
-  <div class="main-content">
-    <div style="text-align: center;">
-      <div style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #003da5; margin-bottom: 10px;">
-        Açılışa Kalan Süre
-      </div>
-      <div class="countdown" id="countdown">Yükleniyor...</div>
-    </div>
+  <!-- Slider -->
+  <div class="slider">
+    <div class="slide active" style="background-image: url('img/slider1.webp');"></div>
+    <div class="slide" style="background-image: url('img/slider2.webp');"></div>
+    <div class="slide" style="background-image: url('img/slider3.webp');"></div>
+    <div class="circle-mask"></div>
   </div>
-  
 
   <!-- Alt Mavi Bant -->
   <div class="bottom-bar">
     <p>©2025 Eurasia Kimya</p>
   </div>
 
-  <script>
-    const countdownDate = new Date();
-    countdownDate.setDate(countdownDate.getDate() + 7);
-
-    const countdownElement = document.getElementById("countdown");
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = countdownDate.getTime() - now;
-
-      if (distance < 0) {
-        countdownElement.innerHTML = "Süre doldu!";
-        clearInterval(interval);
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownElement.innerHTML = `${days}g ${hours}s ${minutes}d ${seconds}sn`;
-    }
-
-    const interval = setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
-
+  <!-- JS en sona -->
+  <script src="js/slider.js"></script>
 </body>
 </html>

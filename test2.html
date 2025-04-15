@@ -2,32 +2,99 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eurasia Kimya</title>
-  <link rel="stylesheet" href="css/style.css">
-  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    .top-bar {
+      background-color: #e0e0e0;
+      height: 60px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flex-container {
+      width: 30%;
+      max-width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      position: relative;
+    }
+
+    .left-menu, .right-menu {
+      display: flex;
+      gap: 10px;
+    }
+
+    .logo-container {
+      position: absolute;
+      top: -100%;
+      left: 50%;
+      transform: translate(-50%, 20%);
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      height: 100px;
+      width: auto;
+    }
+
+    .bottom-bar {
+      background-color: #003c78;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 12px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
 <body>
 
-  <!-- Üst Gri Bant -->
   <div class="top-bar">
-    <!-- Sol Menü -->
-    <div class="menu">
-      <a href="#">Our Brands</a>
-      <a href="#">Hikayemiz</a>
-    </div>
+    <div class="flex-container">
 
-    <!-- Sağ Menü -->
-    <div class="right-menu">
-      <a href="#">Hakkımızda</a>
-      <a href="#">Haberler</a>
+      <div class="left-menu">
+        <a href="#">Markalarımız</a>
+        <a href="#">Hikayemiz</a>
+      </div>
+
+      <div class="logo-container">
+        <img src="img/eurasialogo.png" class="logo-img" alt="Logo">
+      </div>
+
+      <div class="right-menu">
+        <a href="#">Hakkımızda</a>
+        <a href="#">Haberler</a>
+      </div>
+
     </div>
   </div>
 
-  <!-- Logo -->
-  <div class="logo-container">
-    <img src="img/eurasialogo.png" alt="Eurasia Logo" class="logo-img">
-  </div>
-
-    <!-- Alt Mavi Bant -->
   <div class="bottom-bar">
     <p>©2025 Eurasia Kimya</p>
   </div>
+
+</body>
+</html>
