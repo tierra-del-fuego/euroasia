@@ -82,7 +82,7 @@
     .social-icons a.linkedin { background-color: #0077b5; }
     .social-icons a.facebook { background-color: #3b5998; }
     .social-icons a.instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
     .social-icons a:hover {
       transform: scale(1.2);
@@ -146,6 +146,13 @@
       font-size: 14px;
       line-height: 1.7;
     }
+    #newsModal .modal-content {
+      max-width: 700px;
+      padding: 30px 40px;
+      animation: scaleIn 0.8s ease-out;
+      animation-delay: 0.2s;
+      animation-fill-mode: both;
+    }
     .close {
       position: absolute;
       right: 20px;
@@ -164,155 +171,196 @@
       0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       100% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
     }
-
-    /* ✅ Mobil Uyum CSS */
     @media (max-width: 768px) {
-      .flex-container {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
-        text-align: center;
-      }
-      .left-menu, .right-menu {
-        flex-direction: column;
-        gap: 10px;
-        justify-content: center;
-      }
-      .logo-container {
-        padding-top: 60px;
-        margin-bottom: 10px;
-      }
-      .modal-content {
-        width: 90vw !important;
-        max-width: 90vw !important;
-        padding: 20px !important;
-        transform: none !important;
-        top: 5vh !important;
-        left: 50%;
-        translate: -50% 0;
-        max-height: 90vh;
-        overflow-y: auto;
-      }
-      .modal-content p {
-        font-size: 12px !important;
-        line-height: 1.5;
-      }
-      .modal-content h2, .modal-content h3 {
-        font-size: 18px;
-        text-align: center;
-        margin-bottom: 10px;
-      }
-      #newsModal .modal-content > div {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      #newsModal .modal-content img {
-        max-height: 140px;
-        object-fit: cover;
-      }
-    }
+  #storyModal .modal-content {
+    width: 90vw !important;
+    max-width: 90vw !important;
+    padding: 20px !important;
+    top: 5vh !important;
+    transform: none !important;
+    left: 50%;
+    translate: -50% 0;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  #storyModal .modal-content p {
+    font-size: 12px !important;
+    line-height: 1.5;
+  }
+
+  #storyModal .modal-content h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
   </style>
 </head>
 <body>
-  <div class="fullscreen-gallery">
-    <img src="img/photo1.webp" alt="Foto 1" class="active" />
-    <img src="img/photo2.webp" alt="Foto 2" />
-    <img src="img/photo3.webp" alt="Foto 3" />
-    <img src="img/photo4.webp" alt="Foto 4" />
-    <img src="img/photo5.webp" alt="Foto 5" />
-  </div>
 
-  <div class="top-bar">
-    <div class="flex-container">
-      <div class="left-menu">
-        <a href="#">Markalarımız</a>
-        <a href="#" id="hikayemizLink">Hikayemiz</a>
-      </div>
-      <div class="logo-container">
-        <img src="img/eurasialogo.png" class="logo-img" alt="Logo" />
-      </div>
-      <div class="right-menu">
-        <a href="#" id="haberlerLink">Haberler</a>
-        <a href="#" id="hakkimizdaLink">Hakkımızda</a>
+    <div class="fullscreen-gallery">
+      <img src="img/photo1.webp" alt="Foto 1" class="active" />
+      <img src="img/photo2.webp" alt="Foto 2" />
+      <img src="img/photo3.webp" alt="Foto 3" />
+      <img src="img/photo4.webp" alt="Foto 4" />
+      <img src="img/photo5.webp" alt="Foto 5" />
+    </div>
+  
+    <div class="top-bar">
+      <div class="flex-container">
+        <div class="left-menu">
+          <a href="#">Markalarımız</a>
+          <a href="#"id="hikayemizLink">Hikayemiz</a>
+        </div>
+        <div class="logo-container">
+          <img src="img/eurasialogo.png" class="logo-img" alt="Logo" />
+        </div>
+        <div class="right-menu">
+          <a href="#" id="haberlerLink">Haberler</a>
+          <a href="#" id="hakkimizdaLink">Hakkımızda</a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="main-content"></div>
-
-  <!-- Modallar örnek -->
-  <div id="aboutModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Hakkımızda</h2>
-      <p>...hakkımızda içeriği buraya...</p>
+  
+    <div class="main-content"></div>
+  
+    <div class="bottom-bar">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <p style="font-size: 10px; margin: 0;">©2025 Eurasia Kimya</p>
+        <div class="social-icons" style="gap: 8px; align-items: center;">
+          <a href="https://www.linkedin.com/company/eurasia-kimya" target="_blank" class="linkedin" style="width: 26px; height: 26px; font-size: 14px;"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/eurasia.kimya" target="_blank" class="facebook" style="width: 26px; height: 26px; font-size: 14px;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/eurasiakimya" target="_blank" class="instagram" style="width: 26px; height: 26px; font-size: 14px;"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 8px; max-width: 180px; text-align: right; line-height: 1.2; white-space: normal; word-break: break-word; margin: 0;">
+          Battalgazi Mah., Şark Cd.<br>
+          Aytop Gıda Toptancılar Sitesi No:12/13 C Blok<br>
+          34935 Sultanbeyli / İstanbul
+        </p>
+      </div>
     </div>
-  </div>
+  
+    <!-- Modallar -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Hakkımızda</h2>
+        <p style="font-size: 13px; line-height: 1.6;">
+          “Eurasia International Kimya San. Tic. A.Ş”, 2015 yılından beri faaliyetlerinde, sadece mendile enjekte edilmiş kimyasallar üzerine AR-GE çalışmalarına öncelik veren firmamız, ıslak mendil sektöründe yeniliklere öncülük yaparak kullanıcılara ekonomik ve kaliteli ürünler sunmanın mutluluğunu yaşamaktadır.<br><br>
+          QuickCare markalı ve private label olarak kişisel bakım, ev temizliği, araç bakım, hasta bakım, evcil hayvan bakım, endüstriyel kullanım vb. için ıslak mendil üretimi yapmakta olan ve bünyemizde Dezenfektan, kolonya üretimi de bulunan firmamız, yurtiçi ve yurtdışı pazarlara da ürün yelpazesi, satış ve satış sonrası hizmetlerine kesintisiz olarak devam etmektedir.
+        </p>
+      </div>
+    </div>
+  
+    <div id="newsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="text-align: center; margin-bottom: 20px;">Haberler</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+          <div onclick="openNewsDetail('news1Modal')">
+            <img src="img/haber1.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Günlük Hijyen Artık Daha Kolay</p>
+          </div>
+          <div onclick="openNewsDetail('news2Modal')">
+            <img src="img/haber2.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Patisil Pet Şampuanı Serisi Tanıtıldı</p>
+          </div>
+          <div onclick="openNewsDetail('news3Modal')">
+            <img src="img/haber3.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">QuickCare’ın Yeni Ürünü Beyaz Sabun Kokulu Islak Bez</p>
+          </div>
+          <div onclick="openNewsDetail('news4Modal')">
+            <img src="img/haber4.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Patisil Türkiye Genelinde Petshop Raflarında!</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+     <!-- Hikayemiz Modali -->
   <div id="storyModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>Hikayemiz</h2>
-      <p>...hikayemiz içeriği buraya...</p>
+      <p style="font-size: 13px; line-height: 1.6;">
+        2015 yılında, hijyenin sadece bir zorunluluk değil, yaşam kalitesini artıran bir değer olduğuna inanan bir grup kimyagerin vizyonuyla <strong>Eurasia Kimya</strong> doğdu. Küçük bir Ar-Ge laboratuvarında başlayan bu yolculuk, kısa sürede yüz binlerce evin güvenilir temizlik ve bakım ortağına dönüştü.<br><br>
+        Kuruluşumuzdan bu yana en büyük ilham kaynağımız, insanların ve sevdiklerinin sağlığına duydukları özen oldu. <strong>QuickCare</strong> markamızla kişisel bakım, ev temizliği, araç ve hasta bakımı gibi alanlarda ihtiyaçlara özel çözümler sunarken; özel markalı üretimlerimizle de iş ortaklarımıza kendi hikayelerini yazma fırsatı sunduk.<br><br>
+        Ve zamanla, ailenin bir parçası olan tüylü dostlarımız için de bir şeyler yapmamız gerektiğini fark ettik. İşte bu anlayışla, evcil hayvan bakım ürünleri markamız <strong>Patisil</strong> ortaya çıktı. <strong>Patisil</strong>; doğaya duyarlı, nazik ama etkili formülleriyle patili dostlarımızın hijyenini sağlarken onların sağlığına zarar vermeyen ürünler sunmayı hedefliyor. Her <strong>Patisil</strong> ürününde, veteriner hekimlerle iş birliği, AR-GE tutkusu ve koşulsuz hayvan sevgisi var.<br><br>
+        Her bir ıslak mendilde, her bir damla kolonyada, sadece temizlik değil; güven, tutku ve bilimsel birikim var. Pandemi döneminde ise dezenfektan üretim kapasitemizi artırarak toplum sağlığına katkıda bulunmanın gururunu yaşadık.<br><br>
+        Bugün, <strong>Eurasia Kimya</strong> olarak modern tesislerimizde en yüksek kalite ve sürdürülebilir üretim ilkesiyle ilerlemeye devam ediyoruz. Sadece bugünün değil, yarının ihtiyaçlarını da göz önünde bulundurarak; doğaya, insana ve tüm canlılara saygılı çözümler üretiyoruz.<br><br>
+        <strong>Çünkü temizlik bir ihtiyaçtır, güven ise bizim sözümüzdür.</strong>
+      </p>
     </div>
   </div>
+  
+    <!-- Detay Modallar -->
+    <div id="news1Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Patisil Temizleme Mendili</h3><p>Patisil evcil hayvan temizleme mendili, patili dostlarınızın günlük bakımını zahmetsiz hale getiriyor. Alkol ve paraben içermeyen özel formülü sayesinde cildi tahriş etmeden nazikçe temizlerken, tüylerde biriken kiri ve kötü kokuları etkili şekilde gideriyor. Özellikle dışarıdan geldikten sonra patilerin, tüylerin ya da kulak çevresinin silinmesi için ideal olan bu mendil, hem evde hem de seyahatte pratik bir çözüm sunuyor. Veteriner onaylı içeriğiyle güvenle tercih edilen Patisil, evcil hayvanların konforunu ve hijyenini ön planda tutuyor.</p></div></div>
+    <div id="news2Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Evcil Dostlara Doğal ve Parlak Bakım</h3><p>Evcil hayvan temizlik ürünlerinde uzmanlaşan Eurasia Kimya, Patisil markasının yeni ürünü olan Pet Şampuanı serisini kamuoyuna tanıttı. Kedi ve köpekler için özel olarak geliştirilen formülüyle dikkat çeken şampuan, paraben ve SLS içermeyen yapısıyla doğal temizlik sunarken, tüylerde ipeksi bir parlaklık bırakıyor. Lansman sonrası yapılan açıklamada, Patisil Pet Şampuanı’nın kısa sürede hem yurt içi hem de Avrupa pazarında satışa sunulacağı bildirildi.</p></div></div>
+    <div id="news3Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Temizlikte Geleneksel Ferahlığı Geri Getiriyor!</h3><p>Eurasia Kimya’nın temizlik ve hijyen kategorisinde fark yaratan markası QuickCare, yeni ürünü Beyaz Sabun Kokulu Islak Temizlik Bezi ile raflardaki yerini aldı. Geleneksel beyaz sabun kokusuyla nostalji ve hijyeni bir araya getiren ürün; ev, ofis ve araç içi kullanımda pratikliğiyle dikkat çekiyor. Ultra dayanıklı dokusu ve uzun süre kalıcı ferahlık etkisi sayesinde tüketicilerden tam not alan QuickCare, yeni ürününün özellikle zincir marketler ve online satış kanallarında büyük ilgi gördüğünü açıkladı.</p></div></div>
+    <div id="news4Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Patisil Türkiye Genelinde Petshop Raflarında!</h3><p>Eurasia Kimya tarafından geliştirilen ve özellikle kedi-köpek sahiplerinin yoğun ilgisini çeken Patisil, bu ay itibarıyla Türkiye genelindeki seçkin petshop’larda ve veteriner kliniklerinde satışa sunuldu. Hayvan sağlığına zarar vermeyen formülü ve doğal içeriğiyle dikkat çeken ürün, evcil hayvanların günlük bakımında pratik ve güvenli bir çözüm sunuyor. Firma yetkilileri, Patisil’in kısa sürede ihracat pazarlarında da yer alacağını belirtiyor.</p></div></div>
+  
+<!-- Script -->
+<script>
+  const images = document.querySelectorAll('.fullscreen-gallery img');
+  let current = 0;
+  setInterval(() => {
+    images[current].classList.remove('active');
+    current = (current + 1) % images.length;
+    images[current].classList.add('active');
+  }, 3000);
 
-  <!-- Haberler ve detay modalları burada yer alabilir -->
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.style.display = "block";
+    const content = modal.querySelector(".modal-content");
+    content.style.animation = "scaleIn 0.8s ease-out";
+    content.style.animationDelay = "0.2s";
+    content.style.animationFillMode = "both";
+  }
 
-  <script>
-    const images = document.querySelectorAll('.fullscreen-gallery img');
-    let current = 0;
-    setInterval(() => {
-      images[current].classList.remove('active');
-      current = (current + 1) % images.length;
-      images[current].classList.add('active');
-    }, 3000);
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    const content = modal.querySelector(".modal-content");
+    content.style.animation = "scaleOut 0.5s ease-in";
+    setTimeout(() => { modal.style.display = "none"; }, 500);
+  }
 
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.style.display = "block";
-      const content = modal.querySelector(".modal-content");
-      content.style.animation = "scaleIn 0.8s ease-out";
-      content.style.animationDelay = "0.2s";
-      content.style.animationFillMode = "both";
-    }
-
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      const content = modal.querySelector(".modal-content");
-      content.style.animation = "scaleOut 0.5s ease-in";
-      setTimeout(() => { modal.style.display = "none"; }, 500);
-    }
-
-    document.querySelectorAll(".modal .close").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const modal = btn.closest(".modal");
-        if (modal) closeModal(modal.id);
-      });
+  document.querySelectorAll(".modal .close").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".modal");
+      if (modal) closeModal(modal.id);
     });
+  });
 
-    window.addEventListener("click", e => {
-      document.querySelectorAll(".modal").forEach(modal => {
-        if (e.target === modal) closeModal(modal.id);
-      });
+  window.addEventListener("click", e => {
+    document.querySelectorAll(".modal").forEach(modal => {
+      if (e.target === modal) closeModal(modal.id);
     });
+  });
 
-    document.getElementById("hikayemizLink").addEventListener("click", e => {
-      e.preventDefault();
-      openModal("storyModal");
-    });
+  function openNewsDetail(id) {
+    openModal(id);
+  }
 
-    document.getElementById("hakkimizdaLink").addEventListener("click", e => {
-      e.preventDefault();
-      openModal("aboutModal");
-    });
+  document.getElementById("haberlerLink").addEventListener("click", e => {
+    e.preventDefault();
+    openModal("newsModal");
+  });
 
-    document.getElementById("haberlerLink").addEventListener("click", e => {
-      e.preventDefault();
-      openModal("newsModal");
-    });
-  </script>
-</body>
-</html>
+  document.getElementById("hakkimizdaLink").addEventListener("click", e => {
+    e.preventDefault();
+    openModal("aboutModal");
+  });
+
+  document.getElementById("hikayemizLink").addEventListener("click", e => {
+    e.preventDefault();
+    openModal("storyModal");
+  });
+</script>
+  </body>
+  </html>
+  
