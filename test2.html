@@ -136,8 +136,93 @@
       opacity: 1;
       transform: scale(1.15);
     }
+    /* Modal Arkaplan */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+/* İçerik Kutusu */
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.92);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 50px;
+  border-radius: 10px;
+  width: 95%;
+  max-width: 900px;
+  color: #003c78;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+  animation: scaleIn 0.8s ease-out;
+  animation-delay: 0.2s; /* İşte bu: Yarım saniyeden kısa gecikme */
+  animation-fill-mode: both; /* Animasyon bitince pozisyonu koru */
+}
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+/* Kapatma Butonu */
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes scaleOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}
+
   </style>
 </head>
+<!-- Hakkımızda Modal -->
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Hakkımızda</h2>
+    <p style="font-size: 13px; line-height: 1.6;">
+      “Eurasia International Kimya San. Tic. A.Ş”, 2015 yılından beri faaliyetlerinde, sadece mendile enjekte edilmiş kimyasallar üzerine AR-GE çalışmalarına öncelik veren firmamız, ıslak mendil sektöründe yeniliklere öncülük yaparak kullanıcılara ekonomik ve kaliteli ürünler sunmanın mutluluğunu yaşamaktadır.
+      <br><br>
+      Quick Care markalı ve private label olarak kişisel bakım, ev temizliği, araç bakım, hasta bakım, evcil hayvan bakım, endüstriyel kullanım vb. için ıslak mendil üretimi yapmakta olan ve bünyemizde Dezenfektan, kolonya üretimi de bulunan firmamız, yurtiçi ve yurtdışı pazarlara da ürün yelpazesi, satış ve satış sonrası hizmetlerine kesintisiz olarak devam etmektedir.
+    </p>
+  </div>
+</div>
+
 <body>
   <div class="fullscreen-gallery">
     <img src="img/photo1.webp" alt="Foto 1" class="active" />
@@ -209,5 +294,50 @@
       images[current].classList.add('active');
     }, interval);
   </script>
+
+<script>
+  const modal = document.getElementById("aboutModal");
+  const closeBtn = document.querySelector(".modal .close");
+
+  // Menüdeki "Hakkımızda" linkine tıklanınca modal aç
+  document.querySelectorAll("a").forEach(link => {
+    if (link.textContent.includes("Hakkımızda")) {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        modal.style.display = "block";
+      });
+    }
+  });
+
+  // X'e basınca kapat
+  closeBtn.onclick = () => {
+  closeModal();
+};
+  // Modal dışında tıklanırsa da kapat
+  window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal();
+  }
+};
+function closeModal() {
+  const content = modal.querySelector(".modal-content");
+
+  // Çıkış animasyonunu başlat
+  content.style.animation = "scaleOut 0.5s ease-in";
+  content.style.animationFillMode = "forwards";
+
+  // Animasyon bitince modalı kapat
+  setTimeout(() => {
+    modal.style.display = "none";
+
+    // Sonraki açılış için tekrar giriş animasyonunu ayarla
+    content.style.animation = "scaleIn 0.8s ease-out";
+    content.style.animationDelay = "0.2s";
+    content.style.animationFillMode = "both";
+  }, 500);
+}
+
+</script>
+
 </body>
 </html>
