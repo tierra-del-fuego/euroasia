@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -12,13 +11,11 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     html, body {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
     }
-
     .top-bar {
       background-color: #e0e0e0;
       height: 60px;
@@ -30,7 +27,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .flex-container {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
@@ -38,12 +34,10 @@
       padding: 0 40px;
       position: relative;
     }
-
     .left-menu, .right-menu {
       display: flex;
       gap: 40px;
     }
-
     .logo-container {
       grid-column: 2;
       display: flex;
@@ -51,32 +45,28 @@
       justify-content: center;
       padding-top: 80px;
     }
-
     .logo-img {
       height: 100px;
       width: auto;
     }
-
     .bottom-bar {
       background-color: #003c78;
       color: white;
       text-align: center;
-      padding: 15px 0;
+      padding: 6px 0;
       font-size: 12px;
       position: fixed;
       bottom: 0;
       width: 100%;
       z-index: 1000;
-      
+      box-sizing: border-box;
     }
-
     .social-icons {
       margin-top: 10px;
       display: flex;
       justify-content: center;
       gap: 20px;
     }
-
     .social-icons a {
       display: flex;
       align-items: center;
@@ -89,29 +79,19 @@
       transition: all 0.3s ease;
       text-decoration: none;
     }
-
-    .social-icons a.linkedin {
-      background-color: #0077b5;
-    }
-
-    .social-icons a.facebook {
-      background-color: #3b5998;
-    }
-
+    .social-icons a.linkedin { background-color: #0077b5; }
+    .social-icons a.facebook { background-color: #3b5998; }
     .social-icons a.instagram {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
-
     .social-icons a:hover {
       transform: scale(1.2);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-
     .main-content {
       padding-top: 70px;
       padding-bottom: 70px;
     }
-
     .fullscreen-gallery {
       position: fixed;
       top: 0;
@@ -121,7 +101,6 @@
       overflow: hidden;
       z-index: -1;
     }
-
     .fullscreen-gallery img {
       position: absolute;
       width: 100%;
@@ -131,83 +110,210 @@
       transform: scale(1);
       transition: opacity 1.2s ease-in-out, transform 3s ease-in-out;
     }
-
     .fullscreen-gallery img.active {
       opacity: 1;
       transform: scale(1.15);
     }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1500;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+    }
+    .modal-content {
+      background-color: rgba(255, 255, 255, 0.92);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      padding: 40px 50px;
+      border-radius: 10px;
+      width: 95%;
+      max-width: 900px;
+      color: #003c78;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation: scaleIn 0.8s ease-out;
+      animation-delay: 0.2s;
+      animation-fill-mode: both;
+    }
+    .modal-content p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    #newsModal .modal-content {
+      max-width: 700px;
+      padding: 30px 40px;
+      animation: scaleIn 0.8s ease-out;
+      animation-delay: 0.2s;
+      animation-fill-mode: both;
+    }
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+    }
+    .close:hover { color: #000; }
+    @keyframes scaleIn {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+    @keyframes scaleOut {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+    }
   </style>
 </head>
 <body>
-  <div class="fullscreen-gallery">
-    <img src="img/photo1.webp" alt="Foto 1" class="active" />
-    <img src="img/photo2.webp" alt="Foto 2" />
-    <img src="img/photo3.webp" alt="Foto 3" />
-    <img src="img/photo4.webp" alt="Foto 4" />
-    <img src="img/photo5.webp" alt="Foto 5" />
-  </div>
 
-  <div class="top-bar">
-    <div class="flex-container">
-      <div class="left-menu">
-        <a href="#">Markalarımız</a>
-        <a href="#">Hikayemiz</a>
-      </div>
-      <div class="logo-container">
-        <img src="img/eurasialogo.png" class="logo-img" alt="Logo" />
-      </div>
-      <div class="right-menu">
-        <a href="#">Haberler</a>
-        <a href="#">Hakkımızda</a>
+    <div class="fullscreen-gallery">
+      <img src="img/photo1.webp" alt="Foto 1" class="active" />
+      <img src="img/photo2.webp" alt="Foto 2" />
+      <img src="img/photo3.webp" alt="Foto 3" />
+      <img src="img/photo4.webp" alt="Foto 4" />
+      <img src="img/photo5.webp" alt="Foto 5" />
+    </div>
+  
+    <div class="top-bar">
+      <div class="flex-container">
+        <div class="left-menu">
+          <a href="#">Markalarımız</a>
+          <a href="#">Hikayemiz</a>
+        </div>
+        <div class="logo-container">
+          <img src="img/eurasialogo.png" class="logo-img" alt="Logo" />
+        </div>
+        <div class="right-menu">
+          <a href="#" id="haberlerLink">Haberler</a>
+          <a href="#" id="hakkimizdaLink">Hakkımızda</a>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="main-content">
-    <p> </p>
-  </div>
-  <div class="bottom-bar" style="padding: 6px 10px; box-sizing: border-box;">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-      
-      <!-- Sol: Telif -->
-      <p style="font-size: 10px; margin: 0;">©2025 Eurasia Kimya</p>
   
-      <!-- Orta: Sosyal İkonlar -->
-      <div class="social-icons" style="display: flex; gap: 8px; align-items: center;">
-        <a href="https://www.linkedin.com/company/eurasia-kimya" target="_blank" class="linkedin" style="width: 26px; height: 26px; font-size: 14px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.facebook.com/eurasia.kimya" target="_blank" class="facebook" style="width: 26px; height: 26px; font-size: 14px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/eurasiakimya" target="_blank" class="instagram" style="width: 26px; height: 26px; font-size: 14px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
+    <div class="main-content"></div>
+  
+    <div class="bottom-bar">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <p style="font-size: 10px; margin: 0;">©2025 Eurasia Kimya</p>
+        <div class="social-icons" style="gap: 8px; align-items: center;">
+          <a href="https://www.linkedin.com/company/eurasia-kimya" target="_blank" class="linkedin" style="width: 26px; height: 26px; font-size: 14px;"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.facebook.com/eurasia.kimya" target="_blank" class="facebook" style="width: 26px; height: 26px; font-size: 14px;"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/eurasiakimya" target="_blank" class="instagram" style="width: 26px; height: 26px; font-size: 14px;"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 8px; max-width: 180px; text-align: right; line-height: 1.2; white-space: normal; word-break: break-word; margin: 0;">
+          Battalgazi Mah., Şark Cd.<br>
+          Aytop Gıda Toptancılar Sitesi No:12/13 C Blok<br>
+          34935 Sultanbeyli / İstanbul
+        </p>
       </div>
-  
-      <!-- Sağ: Adres -->
-      <p style="
-        font-size: 8px;
-        max-width: 180px;
-        text-align: right;
-        line-height: 1.2;
-        white-space: normal;
-        word-break: break-word;
-        margin: 0;
-      ">
-        Battalgazi Mah., Şark Cd.<br>
-        Aytop Gıda Toptancılar Sitesi No:12/13 C Blok<br>
-        34935 Sultanbeyli / İstanbul
-      </p>
-  
     </div>
-  </div>
+  
+    <!-- Modallar -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Hakkımızda</h2>
+        <p style="font-size: 13px; line-height: 1.6;">
+          “Eurasia International Kimya San. Tic. A.Ş”, 2015 yılından beri faaliyetlerinde, sadece mendile enjekte edilmiş kimyasallar üzerine AR-GE çalışmalarına öncelik veren firmamız, ıslak mendil sektöründe yeniliklere öncülük yaparak kullanıcılara ekonomik ve kaliteli ürünler sunmanın mutluluğunu yaşamaktadır.<br><br>
+          Quick Care markalı ve private label olarak kişisel bakım, ev temizliği, araç bakım, hasta bakım, evcil hayvan bakım, endüstriyel kullanım vb. için ıslak mendil üretimi yapmakta olan ve bünyemizde Dezenfektan, kolonya üretimi de bulunan firmamız, yurtiçi ve yurtdışı pazarlara da ürün yelpazesi, satış ve satış sonrası hizmetlerine kesintisiz olarak devam etmektedir.
+        </p>
+      </div>
+    </div>
+  
+    <div id="newsModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 style="text-align: center; margin-bottom: 20px;">Haberler</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+          <div onclick="openNewsDetail('news1Modal')">
+            <img src="img/haber1.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Haber Başlık 1</p>
           </div>
-
-  <script>
-    const images = document.querySelectorAll('.fullscreen-gallery img');
-    let current = 0;
-    const interval = 3000;
-
-    setInterval(() => {
-      images[current].classList.remove('active');
-      current = (current + 1) % images.length;
-      images[current].classList.add('active');
-    }, interval);
-  </script>
-</body>
-</html>
+          <div onclick="openNewsDetail('news2Modal')">
+            <img src="img/haber2.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Haber Başlık 2</p>
+          </div>
+          <div onclick="openNewsDetail('news3Modal')">
+            <img src="img/haber3.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Haber Başlık 3</p>
+          </div>
+          <div onclick="openNewsDetail('news4Modal')">
+            <img src="img/haber4.jpg" style="width: 100%; border-radius: 8px;">
+            <p style="text-align: center; margin-top: 10px; cursor: pointer;">Haber Başlık 4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Detay Modallar -->
+    <div id="news1Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Haber Başlık 1</h3><p>Bu habere ait detaylı açıklama burada yer alacak.</p></div></div>
+    <div id="news2Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Haber Başlık 2</h3><p>İkinci haberin içeriği burada yer alır.</p></div></div>
+    <div id="news3Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Haber Başlık 3</h3><p>Üçüncü haberin detayları burada olacak.</p></div></div>
+    <div id="news4Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Haber Başlık 4</h3><p>Dördüncü haberin açıklaması buraya yazılacak.</p></div></div>
+  
+    <!-- Script -->
+    <script>
+      const images = document.querySelectorAll('.fullscreen-gallery img');
+      let current = 0;
+      setInterval(() => {
+        images[current].classList.remove('active');
+        current = (current + 1) % images.length;
+        images[current].classList.add('active');
+      }, 3000);
+  
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        modal.style.display = "block";
+        const content = modal.querySelector(".modal-content");
+        content.style.animation = "scaleIn 0.8s ease-out";
+        content.style.animationDelay = "0.2s";
+        content.style.animationFillMode = "both";
+      }
+  
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        const content = modal.querySelector(".modal-content");
+        content.style.animation = "scaleOut 0.5s ease-in";
+        setTimeout(() => { modal.style.display = "none"; }, 500);
+      }
+  
+      document.querySelectorAll(".modal .close").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const modal = btn.closest(".modal");
+          if (modal) closeModal(modal.id);
+        });
+      });
+  
+      window.addEventListener("click", e => {
+        document.querySelectorAll(".modal").forEach(modal => {
+          if (e.target === modal) closeModal(modal.id);
+        });
+      });
+  
+      function openNewsDetail(id) {
+        openModal(id);
+      }
+  
+      document.getElementById("haberlerLink").addEventListener("click", e => {
+        e.preventDefault();
+        openModal("newsModal");
+      });
+      document.getElementById("hakkimizdaLink").addEventListener("click", e => {
+        e.preventDefault();
+        openModal("aboutModal");
+      });
+    </script>
+  </body>
+  </html>
+  
