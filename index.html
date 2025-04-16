@@ -67,6 +67,7 @@
       bottom: 0;
       width: 100%;
       z-index: 1000;
+      
     }
 
     .social-icons {
@@ -102,7 +103,7 @@
     }
 
     .social-icons a:hover {
-      transform: scale(1.15);
+      transform: scale(1.2);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
@@ -165,15 +166,37 @@
   <div class="main-content">
     <p> </p>
   </div>
-
-  <div class="bottom-bar">
-    <p>©2025 Eurasia Kimya</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/company/eurasia-kimya" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.facebook.com/eurasia.kimya" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/eurasiakimya" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+  <div class="bottom-bar" style="padding: 6px 10px; box-sizing: border-box;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      
+      <!-- Sol: Telif -->
+      <p style="font-size: 10px; margin: 0;">©2025 Eurasia Kimya</p>
+  
+      <!-- Orta: Sosyal İkonlar -->
+      <div class="social-icons" style="display: flex; gap: 8px; align-items: center;">
+        <a href="https://www.linkedin.com/company/eurasia-kimya" target="_blank" class="linkedin" style="width: 26px; height: 26px; font-size: 14px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/eurasia.kimya" target="_blank" class="facebook" style="width: 26px; height: 26px; font-size: 14px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/eurasiakimya" target="_blank" class="instagram" style="width: 26px; height: 26px; font-size: 14px; display: flex; align-items: center; justify-content: center;"><i class="fab fa-instagram"></i></a>
+      </div>
+  
+      <!-- Sağ: Adres -->
+      <p style="
+        font-size: 8px;
+        max-width: 180px;
+        text-align: right;
+        line-height: 1.2;
+        white-space: normal;
+        word-break: break-word;
+        margin: 0;
+      ">
+        Battalgazi Mah., Şark Cd.<br>
+        Aytop Gıda Toptancılar Sitesi No:12/13 C Blok<br>
+        34935 Sultanbeyli / İstanbul
+      </p>
+  
     </div>
   </div>
+          </div>
 
   <script>
     const images = document.querySelectorAll('.fullscreen-gallery img');
