@@ -266,6 +266,51 @@
   margin: 4px 0;
 }
 
+.brand-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.brand-item img {
+  height: 50px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.brand-item .info {
+  flex: 1;
+}
+
+.brand-item .info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #003c78;
+}
+
+.brand-item .info p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.brand-item .info a {
+  font-size: 13px;
+  color: #0077cc;
+  text-decoration: none;
+}
+.brand-item .info a:hover {
+  text-decoration: underline;
+}
+
+
   </style>
 </head>
 <body>
@@ -281,7 +326,7 @@
     <div class="top-bar">
       <div class="flex-container">
         <div class="left-menu">
-          <a href="#">Markalarımız</a>
+          <a href="#" id="markalarimizLink">Markalarımız</a>
           <a href="#"id="hikayemizLink">Hikayemiz</a>
         </div>
         <div class="logo-container">
@@ -302,7 +347,7 @@
     </div>
     
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#">Markalarımız</a>
+      <a href="#" id="mobileMarkalarimiz">Markalarımız</a>
       <a href="#" id="mobileHikayemiz">Hikayemiz</a>
       <a href="#" id="mobileHaberler">Haberler</a>
       <a href="#" id="mobileHakkimizda">Hakkımızda</a>
@@ -378,6 +423,32 @@
       </p>
     </div>
   </div>
+  <!-- Markalarımız Modal -->
+<div id="brandsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('brandsModal')">&times;</span>
+    <h2>Markalarımız</h2>
+    <div class="brand-modal-content">
+      <div class="brand-item">
+        <img src="img/quickcare-logo.png" alt="QuickCare">
+        <div class="info">
+          <h3>QuickCare</h3>
+          <p>Hijyen ve kişisel bakımda güvenilir çözümler sunar.</p>
+          <a href="https://www.quickcare.com.tr" target="_blank">www.quickcare.com.tr</a>
+        </div>
+      </div>
+      <div class="brand-item">
+        <img src="img/patisil-logo.png" alt="Patisil">
+        <div class="info">
+          <h3>Patisil</h3>
+          <p>Evcil hayvanlar için doğaya duyarlı temizlik ürünleri.</p>
+          <a href="https://www.patisil.com" target="_blank">www.patisil.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   
     <!-- Detay Modallar -->
     <div id="news1Modal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Patisil Temizleme Mendili</h3><p>Patisil evcil hayvan temizleme mendili, patili dostlarınızın günlük bakımını zahmetsiz hale getiriyor. Alkol ve paraben içermeyen özel formülü sayesinde cildi tahriş etmeden nazikçe temizlerken, tüylerde biriken kiri ve kötü kokuları etkili şekilde gideriyor. Özellikle dışarıdan geldikten sonra patilerin, tüylerin ya da kulak çevresinin silinmesi için ideal olan bu mendil, hem evde hem de seyahatte pratik bir çözüm sunuyor. Veteriner onaylı içeriğiyle güvenle tercih edilen Patisil, evcil hayvanların konforunu ve hijyenini ön planda tutuyor.</p></div></div>
@@ -469,6 +540,16 @@ document.getElementById("mobileHakkimizda").addEventListener("click", function(e
   e.preventDefault();
   toggleMobileMenu();
   openModal("aboutModal");
+});
+document.getElementById("markalarimizLink").addEventListener("click", e => {
+  e.preventDefault();
+  openModal("brandsModal");
+});
+
+document.getElementById("mobileMarkalarimiz").addEventListener("click", e => {
+  e.preventDefault();
+  toggleMobileMenu();
+  openModal("brandsModal");
 });
 
 </script>
