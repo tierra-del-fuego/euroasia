@@ -173,20 +173,14 @@
     }
     @media (max-width: 768px) {
   #storyModal .modal-content {
+    top: 5vh !important;
+    left: 50%;
+    transform: translateX(-50%) !important;
     width: 90vw !important;
     max-width: 90vw !important;
-    padding: 20px !important;
-    top: 5vh !important;
-    transform: none !important;
-    left: 50%;
-    translate: -50% 0;
+    padding: 16px 20px !important;
     max-height: 90vh;
     overflow-y: auto;
-  }
-
-  #storyModal .modal-content p {
-    font-size: 12px !important;
-    line-height: 1.5;
   }
 
   #storyModal .modal-content h2 {
@@ -194,8 +188,18 @@
     text-align: center;
     margin-bottom: 10px;
   }
-}
 
+  #storyModal .modal-content p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  #storyModal .close {
+    top: 10px !important;
+    right: 15px !important;
+    font-size: 20px !important;
+  }
+}
   </style>
 </head>
 <body>
