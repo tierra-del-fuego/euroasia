@@ -200,6 +200,57 @@
     font-size: 20px !important;
   }
 }
+@media (max-width: 768px) {
+  .left-menu, .right-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+
+  .mobile-menu a {
+    padding: 15px;
+    font-size: 16px;
+    color: #003c78;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-menu a:hover {
+    background: #f0f0f0;
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #003c78;
+  margin: 4px 0;
+}
+
   </style>
 </head>
 <body>
@@ -225,9 +276,23 @@
           <a href="#" id="haberlerLink">Haberler</a>
           <a href="#" id="hakkimizdaLink">Hakkımızda</a>
         </div>
+          <!-- 🔄 Hamburger menü tam buraya taşınmalı -->
+        <div class="hamburger" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    
       </div>
     </div>
-  
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#">Markalarımız</a>
+      <a href="#" id="mobileHikayemiz">Hikayemiz</a>
+      <a href="#" id="mobileHaberler">Haberler</a>
+      <a href="#" id="mobileHakkimizda">Hakkımızda</a>
+    </div>
+    
     <div class="main-content"></div>
   
     <div class="bottom-bar">
@@ -364,6 +429,33 @@
     e.preventDefault();
     openModal("storyModal");
   });
+  function toggleMobileMenu() {
+  const menu = document.getElementById("mobileMenu");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+
+document.getElementById("mobileHikayemiz").addEventListener("click", function(e) {
+  e.preventDefault();
+  toggleMobileMenu();
+  openModal("storyModal");
+});
+
+document.getElementById("mobileHaberler").addEventListener("click", function(e) {
+  e.preventDefault();
+  toggleMobileMenu();
+  openModal("newsModal");
+});
+
+document.getElementById("mobileHakkimizda").addEventListener("click", function(e) {
+  e.preventDefault();
+  toggleMobileMenu();
+  openModal("aboutModal");
+});
+
 </script>
   </body>
   </html>
